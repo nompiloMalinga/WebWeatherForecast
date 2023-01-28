@@ -31,9 +31,7 @@ setInterval(() => {
 }, 1000);
 
 button.addEventListener('click',function () {
-   // navigator.geolocation.getCurrentPosition((success) => {
-       // let { latitude, longitude } = success.coords;
-        fetch(`https://api.openweathermap.org/data/2.5/weather?q=`+inputValue.value+`&appid=${API_KEY}`)
+        fetch(`https://api.openweathermap.org/data/2.5/weather?q=`+inputValue.value+`&units=metric&appid=${API_KEY}`)
             .then(res => res.json())
             .then(data => {
                 console.log(data);
@@ -58,11 +56,11 @@ function readData(data) {
     
     locationIcon.innerHTML = `<img src="http://openweathermap.org/img/wn/${icon}.png">`;
     nameOfCity.innerHTML = cityName;
-    temperatureData.innerHTML = `<span>Temperature </span>`+'  : '+temValue + `<span>°C</span>`;
-    descriptionData.innerHTML = `<span>Description </span>`+'  : '+ descValue;
-    humidityData.innerHTML = `<span>Humidity </span>`+ '       : '+humidityValue + `<span>%</span>`;
-    pressureData.innerHTML = `<span>Pressure </span>`+'        : '+ pressureValue;
-    windSpeed.innerHTML = `<span>Wind Speed </span>`+ '        : '+windSpeedValue;
+    temperatureData.innerHTML = "Temperature " +" : "+temValue + "°C";
+    descriptionData.innerHTML = "Description "+" : "+ descValue;
+    humidityData.innerHTML = "Humidity "+ " : "+humidityValue + "%";
+    pressureData.innerHTML = "Pressure "+ " : "+ pressureValue;
+    windSpeed.innerHTML = "Wind Speed "+ " : "+windSpeedValue + " km/h";
     country.innerHTML = countryData;
     
    
